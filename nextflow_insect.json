@@ -1,0 +1,18 @@
+{
+    "input": "/home/vxe027/samplesheet.txt",
+    "outdir": "/project/bennett/",
+    "FW_primer": "GGWACWGGWTGAACWGTWTAYCCYCC",
+    "RV_primer": "TAAACTTCAGGGTGACCAAARAAYCA",
+    "trunclenf": ,
+    "trunclenr": ,
+    "ignore_empty_input_files": true,
+    "ignore_failed_trimming": true,
+    "ignore_failed_filtering": true,
+    "dada_ref_tax_custom": "/globalhome/vxe027/HPC/databases/MIDORI2_LONGEST_NUC_GB270_CO1_DADA2.fasta",
+    "sample_inference": "independent",
+    "skip_dada_addspecies": true,
+    "skip_qiime": true,
+    "skip_barrnap": true,
+    "skip_multiqc": true,
+	"skip_fastqc": true
+}
