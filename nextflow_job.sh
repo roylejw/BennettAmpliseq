@@ -33,7 +33,7 @@ nextflow run \
 	-profile singularity \
 	-c "$HOME"/ampliseq/conf/plato.config \
 	-params-file "$HOME"/nextflow_configs/nextflow_"$primer".json \
-	-work-dir /project/bennett/jack/work \
+	-work-dir /project/bennett/work \
 	--skip_tse \
 	--skip_phyloseq \
 	--skip_fastqc \
