@@ -93,7 +93,7 @@ nano $HOME/scripts/nextflow_job.sh
 	-work-dir /project/bennett/<your_folder>/work \
 ```
 
-To save and exist nano, press ctrl + x, then press y to save your work, and then enter to overwrite the existing file. If you don't wish to save, press ctrl + x, then n instead to exit without saving.
+To save and exit nano, press ctrl + x, then press y to save your work, and then enter to overwrite the existing file. If you don't wish to save, press ctrl + x, then n instead to exit without saving.
 
 ---
 
@@ -103,7 +103,7 @@ To save and exist nano, press ctrl + x, then press y to save your work, and then
    Globus is the recommended way to do this.
 
 2. **Check read quality with [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/).**
-   The pipeline runs with `--skip_fastqc`, so you have to do this step yourself. You will use the results in step 5.
+   The pipeline runs with `--skip_fastqc`, so you have to do this step yourself. This is because you will use the results of FastQC in step 5, and so it is useless to run within the pipeline.
 
 3. **Create a samplesheet and upload it to your HPC home directory.**
    It is a tab-separated file with this header (see [`example_samplesheet.tsv`](example_samplesheet.tsv)):
@@ -125,7 +125,7 @@ To save and exist nano, press ctrl + x, then press y to save your work, and then
 5. **Set `trunclenf` and `trunclenr`** based on where the quality score drops off in FastQC and on how much the reads need to overlap. We sequence 2 × 300 bp on a NextSeq 2000.
    - The forward and reverse reads must still overlap after truncation: `trunclenf + trunclenr` should be at least the amplicon length plus about 20 bp.
    - **16S:** skip this step. Truncation lengths are computed automatically from `trunc_qmin`.
-   - The templates ship with these fields **empty** (`"trunclenf": ,`). That is not valid JSON, and the run will fail until you enter numbers.
+   - The templates start with these fields **empty** (`"trunclenf": ,`). That is not valid JSON, and the run will fail until you enter numbers.
 
    ```json
    "trunclenf": 240,
@@ -136,7 +136,9 @@ To save and exist nano, press ctrl + x, then press y to save your work, and then
    - `input`: the full path to your samplesheet
    - `outdir`: your output folder in project storage
 
-   Use full paths, not `~` or `$HOME` (run `echo $HOME` on the HPC to get the full path). **AMF only:** also set `kraken2_ref_tax_custom` to the full path of `databases/amf_maarjam_vtx_db` in your home directory.
+   Use full paths, not `~` or `$HOME` (run `echo $HOME` on the HPC to get the full path).
+
+   **AMF only:** also set `kraken2_ref_tax_custom` to the full path of `databases/amf_maarjam_vtx_db` in your home directory.
 
    ```json
    "input": "/home/abc123/samplesheet.tsv",
@@ -144,12 +146,12 @@ To save and exist nano, press ctrl + x, then press y to save your work, and then
    "kraken2_ref_tax_custom": "/home/abc123/databases/amf_maarjam_vtx_db"
    ```
 
-7. **Save the config under a name that identifies the run**, in the format `nextflow_<ID>.json`.
+8. **Save the config under a name that identifies the run**, in the format `nextflow_<ID>.json`.
    Example: `nextflow_redberry16S.json`
 
-8. **Upload the config to `$HOME/nextflow_configs`.**
+9. **Upload the config to `$HOME/nextflow_configs`.**
 
-9. **Put the run ID in the job script's `primer=""` line.**
+10. **Put the run ID in the job script's `primer=""` line.**
 
    ```bash
    nano $HOME/scripts/nextflow_job.sh
@@ -159,7 +161,7 @@ To save and exist nano, press ctrl + x, then press y to save your work, and then
    primer="redberry16S"    # loads $HOME/nextflow_configs/nextflow_redberry16S.json
    ```
 
-10. **Submit the job.**
+11. **Submit the job.**
 
     ```bash
     sbatch $HOME/scripts/nextflow_job.sh
