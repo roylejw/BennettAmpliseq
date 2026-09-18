@@ -1,0 +1,20 @@
+{
+    "input": "/home/NSID/sheet.txt",
+    "outdir": "/project/bennett/out",
+    "FW_primer": "GGAAGGATCATTACCACAC",
+    "RV_primer": "WGYGKTCTTCATCGATGTGC",
+    "trunclenf": ,
+    "trunclenr": ,
+    "min_len": 150,
+    "illumina_pe_its": true,
+    "ignore_empty_input_files": true,
+    "ignore_failed_trimming": true,
+    "ignore_failed_filtering": true,
+    "dada_ref_taxonomy": "unite-alleuk",
+    "sample_inference": "independent",
+	"skip_dada_addspecies": true,
+    "skip_qiime": true,
+    "skip_barrnap": true,
+    "skip_multiqc": true,
+    "skip_fastqc": true
+}

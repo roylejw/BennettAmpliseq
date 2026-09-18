@@ -1,0 +1,22 @@
+{
+    "input": "/home/NSID/samplesheet.txt",
+    "outdir": "/project/bennett/out",
+    "FW_primer": "CAGCCGCGGTAATTCCAGCT",
+    "RV_primer": "GAACCCAAACACTTTGGTTTCC",
+    "trunclenf": ,
+	"trunclenr": ,
+    "min_len": 150,
+    "ignore_empty_input_files": true,
+    "ignore_failed_trimming": true,
+    "ignore_failed_filtering": true,
+    "kraken2_ref_tax_custom": "/home/NSID/databases/amf_maarjam_vtx_db",
+    "kraken2_assign_taxlevels": "K,P,F,G,S",
+    "kraken2_confidence": 0.1,
+    "mergepairs_strategy": "consensus",
+    "sample_inference": "pseudo",
+    "skip_qiime": true,
+    "skip_barrnap": true,
+    "skip_multiqc": true,
+    "skip_fastqc": true,
+    "skip_dada_taxonomy": true
+}

@@ -1,0 +1,16 @@
+{
+    "input": "/home/NSID/sheet.txt",
+    "outdir": "/project/bennett/out",
+    "FW_primer": "GTGYCAGCMGCCGCGGTAA",
+    "RV_primer": "CCGYCAATTYMTTTRAGTTT",
+    "min_len": 150,
+    "ignore_empty_input_files": true,
+    "ignore_failed_trimming": true,
+    "ignore_failed_filtering": true,
+    "dada_ref_taxonomy": "silva",
+    "trunc_qmin": 25,
+    "sample_inference": "independent",
+    "skip_dada_addspecies": true,
+    "skip_qiime": true,
+    "skip_multiqc": true
+}
