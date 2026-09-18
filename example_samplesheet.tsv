@@ -1,0 +1,4 @@
+sampleID	forwardReads	reverseReads
+sample_A	/project/bennett/jack/sequences/run_7_new_qc/NX.VH01519_191.001.xGen_UDI_i7_193---xGen_UDI_i5_193.soil-community-16S-321_R1.fastq.gz	/project/bennett/jack/sequences/run_7_new_qc/NX.VH01519_191.001.xGen_UDI_i7_193---xGen_UDI_i5_193.soil-community-16S-321_R2.fastq.gz
+sample_B	/project/bennett/jack/sequences/run_7_new_qc/NX.VH01519_191.001.xGen_UDI_i7_194---xGen_UDI_i5_194.soil-community-16S-333_R1.fastq.gz	/project/bennett/jack/sequences/run_7_new_qc/NX.VH01519_191.001.xGen_UDI_i7_194---xGen_UDI_i5_194.soil-community-16S-333_R2.fastq.gz
+sample_C	/project/bennett/jack/sequences/run_7_new_qc/NX.VH01519_191.001.xGen_UDI_i7_195---xGen_UDI_i5_195.soil-community-16S-345_R1.fastq.gz	/project/bennett/jack/sequences/run_7_new_qc/NX.VH01519_191.001.xGen_UDI_i7_195---xGen_UDI_i5_195.soil-community-16S-345_R2.fastq.gz
