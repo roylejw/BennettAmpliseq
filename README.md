@@ -50,50 +50,26 @@ unzip -q $HOME/downloads/BennettAmpliseq/ampliseq.zip -x '__MACOSX/*' -d $HOME
 ls $HOME/ampliseq    # should list main.nf, nextflow.config, conf/, ...
 ```
 
-### 3. Copy the reference databases
+### 3. Run the setup script
 
 ```bash
-cp -R /project/bennett/databases $HOME/databases
+bash $HOME/downloads/BennettAmpliseq/setup.sh
 ```
 
-### 4. Copy the config templates into `$HOME/nextflow_configs`
+The script will ask for two things:
 
-```bash
-mkdir -p $HOME/nextflow_configs
-cp $HOME/downloads/BennettAmpliseq/*.json $HOME/nextflow_configs/
-```
+- **Your NSID** (e.g. `abc123`), which goes into the Singularity bind mounts in `plato.config`
+- **Your project folder name**, (located in `/project/bennett/<your_folder>`)
 
-### 5. Copy the job script into `$HOME/scripts`
+It then does the rest for you:
 
-```bash
-mkdir -p $HOME/scripts
-cp $HOME/downloads/BennettAmpliseq/nextflow_job.sh $HOME/scripts/
-```
+- creates `downloads`, `nextflow_configs`, `scripts`, `local`, `scratch` and `tmp` in your home directory
+- copies the reference databases to `$HOME/databases`
+- copies the config templates to `$HOME/nextflow_configs`
+- copies the job script to `$HOME/scripts`
+- puts your NSID and folder into the config and the job script
 
-### 6. Set your NSID in the cluster config
-
-The Singularity bind mounts in `plato.config` need your NSID. It appears several times, so replace every copy at once (swap `abc123` for your NSID):
-
-```bash
-sed -i 's/NSID/abc123/g' $HOME/ampliseq/conf/plato.config
-grep runOptions $HOME/ampliseq/conf/plato.config    # check it worked
-```
-
-Or edit it by hand with `nano $HOME/ampliseq/conf/plato.config` and change every `NSID` in the `singularity` section.
-
-### 7. Set your own work directory in the job script
-
-The job script needs a working directory for temporary files. Point it at your own folder in project storage:
-
-```bash
-nano $HOME/scripts/nextflow_job.sh
-```
-
-```bash
-	-work-dir /project/bennett/<your_folder>/work \
-```
-
-To save and exit nano, press ctrl + x, then press y to save your work, and then enter to overwrite the existing file. If you don't wish to save, press ctrl + x, then n instead to exit without saving.
+At the end it prints the updated lines from both files so you can check them. Each line should show your NSID or your folder.
 
 ---
 
