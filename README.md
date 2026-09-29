@@ -96,7 +96,7 @@ At the end it prints the updated lines from both files so you can check them. Ea
 
    Read paths must be **absolute** (full) paths.
 
-4. **Copy the config file for your primer** (see [Primer information](#primer-information)) and open it in Notepad or a similar text editor.
+4. **Download the config file for your primer** (see [Primer information](#primer-information)) and open it in Notepad or a similar text editor.
 
 5. **Set `trunclenf` and `trunclenr`** based on where the quality score drops off in FastQC and on how much the reads need to overlap. We sequence 2 × 300 bp on a NextSeq 2000.
    - The forward and reverse reads must still overlap after truncation: `trunclenf + trunclenr` should be at least the amplicon length plus about 20 bp.
@@ -122,19 +122,19 @@ At the end it prints the updated lines from both files so you can check them. Ea
    "kraken2_ref_tax_custom": "/home/abc123/databases/amf_maarjam_vtx_db"
    ```
 
-8. **Save the config under a name that identifies the run**, in the format `nextflow_<ID>.json`.
-   Example: `nextflow_redberry16S.json`
+8. **Save the config**, making sure the name still matches the format **`nextflow_<primer>.json`**.
+   Example: `nextflow_16S.json`
 
 9. **Upload the config to `$HOME/nextflow_configs`.**
 
-10. **Put the run ID in the job script's `primer=""` line.**
+10. **Put the primer name in the job script's `primer=""` line.**
 
    ```bash
    nano $HOME/scripts/nextflow_job.sh
    ```
 
    ```bash
-   primer="redberry16S"    # loads $HOME/nextflow_configs/nextflow_redberry16S.json
+   primer="16S"    # loads $HOME/nextflow_configs/nextflow_16S.json
    ```
 
 11. **Submit the job.**
