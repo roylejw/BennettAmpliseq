@@ -43,9 +43,10 @@ mkdir -p $HOME/downloads
 git clone https://github.com/roylejw/BennettAmpliseq.git $HOME/downloads/BennettAmpliseq
 ```
 
-### 2. Unzip the pipeline into `$HOME/ampliseq`
+### 2. Unzip the pipeline into `$HOME/ampliseq` (Removing an old install first if previously installed)
 
 ```bash
+rm -rf $HOME/ampliseq
 unzip -q $HOME/downloads/BennettAmpliseq/ampliseq.zip -x '__MACOSX/*' -d $HOME
 ls $HOME/ampliseq    # should list main.nf, nextflow.config, conf/, ...
 ```
